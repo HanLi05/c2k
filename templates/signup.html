@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <title>YCC-C2K Signup</title>
+    <script>
+    var jsondata ={{jsondata}};
+    </script>
+</head>
+<body>
+    <p>Hi {{value}}!</p>
+    <div>
+        <select id ="ddl" name="ddl" onmousedown="this.value='';" onchange="jsFunction(this.value);">
+            <option selected>--Select a date--</option>
+            <option value='01/01/2022'>01/01/2022</option>
+            <option value='01/02/2022'>01/02/2022</option>
+            <option value='01/03/2022'>01/03/2022</option>
+        </select>
+            <table border=1>
+                {% for user in jsondata: %}
+                <tr>
+                    <td>{{ user['student_name'] }}</td>
+                    <td>{{ user['signup_date'] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <form action="/add" method="POST">
+                <input type="hidden" name="student_name" value="{{value}}"/><br>
+                <input type="hidden" name="signup_date" id="signup_date" /><br>
+                <input type="submit" value="Sign Up">
+            </form>
+    </div>
+
+    <form action="/remove" method="POST">
+        Student Name:<input type="text" name="student_name" /><br>
+        Signup Event Date: <input type="text" name="signup_date" /><br>
+        <input type="submit" value="REMOVE ME">
+    </form>
+    
+<script>
+    function jsFunction(value)
+    {
+        date = value;
+        document.getElementById("signup_date").value = date;
+        //alert(date);
+    }
+</script>
+</body>
+</html>
