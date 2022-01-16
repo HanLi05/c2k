@@ -119,7 +119,7 @@ def remove_element(filename='data_source.json'):
         json.dump(file_data, open(filename, 'w+'), indent = 4)
 
     # final step: display the json with new data in html
-    return render_template('signup.html', title="DISPLAY JSON DATA IN HTML", jsondata=file_data["signup_details"])
+    return render_template('signup.html', title="DISPLAY JSON DATA IN HTML", jsondata=file_data["signup_details"], value=remove_me['student_name'])
 
 
 if __name__ == '__main__':
