@@ -33,8 +33,8 @@
     </div>
 
     <form action="/remove" method="POST">
-        Student Name:<input type="text" name="student_name" /><br>
-        Signup Event Date: <input type="text" name="signup_date" /><br>
+        <input type="hidden" name="student_name" value="{{value}}"/><br>
+        <input type="hidden" name="signup_date" id="signup_date" /><br>
         <input type="submit" value="REMOVE ME">
     </form>
     
